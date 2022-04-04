@@ -1,0 +1,12 @@
+    function setApprovalForAll(address operator, bool approved) public virtual override {
+        require(operator != _msgSender(), "ERC721: approve to caller");
+
+        _operatorApprovals[_msgSender()][operator] = approved;
+        emit ApprovalForAll(_msgSender(), operator, approved);
+    }
+
+
+event ApprovalForAll(address indexed owner, address indexed operator, bool approved);
+
+
+
